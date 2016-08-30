@@ -586,8 +586,8 @@ DIN A4, landscape with location and doc. field</description>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
 <part name="CON-BT" library="pinhead" deviceset="PINHD-1X4" device=""/>
 <part name="CON-GY-80" library="pinhead" deviceset="PINHD-1X4" device=""/>
-<part name="JP1" library="pinhead" deviceset="PINHD-1X5" device=""/>
-<part name="JP2" library="pinhead" deviceset="PINHD-1X5" device=""/>
+<part name="CON-SD1" library="pinhead" deviceset="PINHD-1X5" device=""/>
+<part name="CON-SD2" library="pinhead" deviceset="PINHD-1X5" device=""/>
 <part name="+3V2" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND2" library="supply1" deviceset="GND" device=""/>
 <part name="GND3" library="supply1" deviceset="GND" device=""/>
@@ -598,6 +598,9 @@ DIN A4, landscape with location and doc. field</description>
 <sheets>
 <sheet>
 <plain>
+<text x="149.86" y="55.88" size="1.778" layer="97" rot="MR180">CAUTION!!
+3V3 solder bridge is connected
+Do not connect to 5V</text>
 </plain>
 <instances>
 <instance part="FRAME1" gate="G$1" x="0" y="0"/>
@@ -607,8 +610,8 @@ DIN A4, landscape with location and doc. field</description>
 <instance part="GND1" gate="1" x="76.2" y="144.78"/>
 <instance part="CON-BT" gate="A" x="162.56" y="152.4"/>
 <instance part="CON-GY-80" gate="A" x="162.56" y="111.76"/>
-<instance part="JP1" gate="A" x="157.48" y="68.58"/>
-<instance part="JP2" gate="A" x="165.1" y="68.58" rot="R180"/>
+<instance part="CON-SD1" gate="A" x="157.48" y="68.58"/>
+<instance part="CON-SD2" gate="A" x="165.1" y="68.58" rot="R180"/>
 <instance part="+3V2" gate="G$1" x="132.08" y="121.92"/>
 <instance part="GND2" gate="1" x="132.08" y="109.22"/>
 <instance part="GND3" gate="1" x="132.08" y="144.78"/>
@@ -648,7 +651,7 @@ DIN A4, landscape with location and doc. field</description>
 <wire x1="132.08" y1="154.94" x2="132.08" y2="160.02" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="JP2" gate="A" pin="5"/>
+<pinref part="CON-SD2" gate="A" pin="5"/>
 <wire x1="167.64" y1="73.66" x2="190.5" y2="73.66" width="0.1524" layer="91"/>
 <pinref part="+3V4" gate="G$1" pin="+3V3"/>
 <wire x1="190.5" y1="78.74" x2="190.5" y2="73.66" width="0.1524" layer="91"/>
@@ -674,7 +677,7 @@ DIN A4, landscape with location and doc. field</description>
 <wire x1="137.16" y1="152.4" x2="132.08" y2="147.32" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="JP1" gate="A" pin="1"/>
+<pinref part="CON-SD1" gate="A" pin="1"/>
 <wire x1="154.94" y1="73.66" x2="124.46" y2="73.66" width="0.1524" layer="91"/>
 <wire x1="124.46" y1="73.66" x2="124.46" y2="71.12" width="0.1524" layer="91"/>
 <pinref part="GND4" gate="1" pin="GND"/>
@@ -711,7 +714,7 @@ DIN A4, landscape with location and doc. field</description>
 <label x="10.16" y="129.54" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="JP1" gate="A" pin="4"/>
+<pinref part="CON-SD1" gate="A" pin="4"/>
 <wire x1="154.94" y1="66.04" x2="129.54" y2="66.04" width="0.1524" layer="91"/>
 <label x="132.08" y="66.04" size="1.778" layer="95"/>
 </segment>
@@ -723,7 +726,7 @@ DIN A4, landscape with location and doc. field</description>
 <label x="10.16" y="127" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="JP1" gate="A" pin="5"/>
+<pinref part="CON-SD1" gate="A" pin="5"/>
 <wire x1="154.94" y1="63.5" x2="129.54" y2="63.5" width="0.1524" layer="91"/>
 <label x="132.08" y="63.5" size="1.778" layer="95"/>
 </segment>
@@ -735,7 +738,7 @@ DIN A4, landscape with location and doc. field</description>
 <label x="10.16" y="121.92" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="JP1" gate="A" pin="3"/>
+<pinref part="CON-SD1" gate="A" pin="3"/>
 <wire x1="154.94" y1="68.58" x2="129.54" y2="68.58" width="0.1524" layer="91"/>
 <label x="132.08" y="68.58" size="1.778" layer="95"/>
 </segment>
@@ -766,7 +769,7 @@ DIN A4, landscape with location and doc. field</description>
 </net>
 <net name="SD-SS" class="0">
 <segment>
-<pinref part="JP1" gate="A" pin="2"/>
+<pinref part="CON-SD1" gate="A" pin="2"/>
 <wire x1="154.94" y1="71.12" x2="129.54" y2="71.12" width="0.1524" layer="91"/>
 <label x="132.08" y="71.12" size="1.778" layer="95"/>
 </segment>
@@ -778,7 +781,7 @@ DIN A4, landscape with location and doc. field</description>
 </net>
 <net name="SD-SW" class="0">
 <segment>
-<pinref part="JP2" gate="A" pin="1"/>
+<pinref part="CON-SD2" gate="A" pin="1"/>
 <wire x1="167.64" y1="63.5" x2="190.5" y2="63.5" width="0.1524" layer="91"/>
 <label x="187.96" y="63.5" size="1.778" layer="95" rot="MR0"/>
 </segment>
@@ -788,4 +791,10 @@ DIN A4, landscape with location and doc. field</description>
 </sheets>
 </schematic>
 </drawing>
+<compatibility>
+<note version="6.3" minversion="6.2.2" severity="warning">
+Since Version 6.2.2 text objects can contain more than one line,
+which will not be processed correctly with this version.
+</note>
+</compatibility>
 </eagle>
