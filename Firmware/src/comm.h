@@ -10,6 +10,8 @@
 
 // #include <Arduino.h>
 
-void bt_init(int serialnumber);
-
+void bt_config        ();
+void bt_begin         ();
+void bt_print_sn      ();
+void bt_print_version ();
 #endif

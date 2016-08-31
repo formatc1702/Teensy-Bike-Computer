@@ -2,8 +2,9 @@
 
 #include "comm.h"
 #include "debug.h"
+#include "config.h"
 
-void bt_init (int serialnumber) {
+void bt_config () {
   delay(5000);
   Debug.println("# BT setup start");
   blink_status(1);
@@ -23,10 +24,7 @@ void bt_init (int serialnumber) {
   delay(1000);
   Debug.println("# Setting BT name");
   BT.print("AT+NAMEDekoboko-");
-  if (serialnumber < 1000) BT.print('0');
-  if (serialnumber <  100) BT.print('0');
-  if (serialnumber <   10) BT.print('0');
-  BT.print(serialnumber);
+  bt_print_sn();
   delay(1500);
   Debug.println("# Setting BT pin");
   BT.print("AT+PIN0000");
@@ -35,4 +33,28 @@ void bt_init (int serialnumber) {
   BT.end();
   blink_status(3);
   delay(1000);
+}
+
+void bt_begin () {
+  BT.begin(115200);
+  BT.print("# Dekoboko v");
+  bt_print_version();
+  BT.print(" S/N ");
+  bt_print_sn();
+  BT.println();
+}
+
+void bt_print_sn () {
+  if (DEKOBOKO_SN < 1000) BT.print('0');
+  if (DEKOBOKO_SN <  100) BT.print('0');
+  if (DEKOBOKO_SN <   10) BT.print('0');
+  BT.print(DEKOBOKO_SN);
+}
+
+void bt_print_version () {
+  BT.print(VERSION_MAJOR);
+  BT.print('.');
+  BT.print(VERSION_MINOR);
+  BT.print('.');
+  BT.print(VERSION_PATCH);
 }

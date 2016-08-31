@@ -21,20 +21,10 @@ void setup() {
   Debug.begin(BAUD_DEBUG);
   delay(5000);
   if(BT_FORCE_SETUP) {
-    bt_init(DEKOBOKO_SN);
+    bt_config();
   }
-  BT.begin(115200);
-  BT.println("BT hello!");
-  // Init Accelerometer
-  // if (!acc_init()) {
-  //   Debug.println("# ADXL345 not found.");
-  //   blink_error   (ERR_ADXL_NOT_FOUND);
-  // }
+  bt_begin();
   acc_init();
-  // if (!accel.begin()) {
-  //   Debug.println("# ADXL345 not found.");
-  //   blink_error   (ERR_ADXL_NOT_FOUND);
-  // }
   Debug.println("Setup finished.");
   blink_status (5);
 }
