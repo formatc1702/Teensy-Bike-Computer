@@ -33,7 +33,6 @@ void setup() {
   rpm_init();
   Debug.println("Setup finished.");
   blink_status (5);
-  lastrpm = millis();
 }
 
 void loop() {
