@@ -24,12 +24,12 @@
 // SPI
 #define PIN_SPI_MOSI   11
 #define PIN_SPI_MISO   12
-#define PIN_SPI_SCK    14 // because 13 is LED
+#define PIN_SPI_SCK    14 // because 13 is LED // UNPLUGGED FOR RPM TEST!!
 // TWI/I2C
 #define PIN_TWI_SDA    18
 #define PIN_TWI_SCL    19
 // Others
-#define PIN_RPM_SENSOR
+#define PIN_RPM_SENSOR 14 // CONFLICT WITH SPI SCK!! REASSIGN!
 #define PIN_V_BATT
 
 // Aliases
