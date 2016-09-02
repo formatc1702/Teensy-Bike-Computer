@@ -3,6 +3,7 @@
 
 void  rpm_init();
 void  rpm_exec(long now);
+void  rpm_log(long now);
 void  rpm_debug();
 
 long  get_bps();

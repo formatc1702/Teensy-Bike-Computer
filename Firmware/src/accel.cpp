@@ -45,6 +45,8 @@ void acc_exec(long now) {
     //    long A = millis();
     acc_read();
     //    long B = millis();
+    BT.print('A');
+    BT.print('\t');
     BT.print(now);
     BT.print('\t');
     BT.print(acc_getX());

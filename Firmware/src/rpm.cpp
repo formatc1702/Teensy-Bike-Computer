@@ -20,7 +20,7 @@ void rpm_init() {
 void rpm_exec(long now) {
   if(now - rpm_last_check > rpm_interval) {
     incBlip();
-    rpm_debug();
+    rpm_log(now);
     rpm_last_check += rpm_interval;
   }
 }
@@ -86,6 +86,23 @@ float get_rev() {
 
 float get_km() {
   return (float)allblips * ((float)WHEEL_DIAMETER_MM * 3.14159 * 2.0 / ((float)DYNAMO_NUM_POLES *  1000000.0));
+}
+
+void rpm_log(long now) {
+  BT.print('R');
+  BT.print('\t');
+  BT.print(now);
+  BT.print('\t');
+  BT.print(get_bps());
+  BT.print('\t');
+  BT.print(get_kph());
+  BT.print('\t');
+  BT.print('\t');
+  BT.print(get_blips());
+  BT.print('\t');
+  BT.print(get_km() ,3);
+  BT.print('\t');
+  BT.println();
 }
 
 void rpm_debug() {
