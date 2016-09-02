@@ -5,6 +5,7 @@
 
 boolean acc_init();
 void    acc_read();
+void    acc_exec(long now);
 float   acc_getX();
 float   acc_getY();
 float   acc_getZ();
