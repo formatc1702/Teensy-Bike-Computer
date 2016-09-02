@@ -38,23 +38,7 @@ void setup() {
 
 void loop() {
   long now = millis();
-  if (now - LastPolling > PollingInterval) {
-    //    long A = millis();
-    acc_read();
-    //    long B = millis();
-    BT.print(now);
-    BT.print('\t');
-    BT.print(acc_getX());
-    BT.print('\t');
-    BT.print(acc_getY());
-    BT.print('\t');
-    BT.print(acc_getZ());
-    BT.println();
-    //    long C = millis();
-    //    BT.print("B-A:"); BT.println(B-A);
-    //    BT.print("C-B:"); BT.println(C-B);
-    LastPolling += PollingInterval;
-  }
+  acc_exec(now);
   // digitalWrite(PIN_LED, HIGH);
   // BT.println("BT hello!");  delay(100);
   // digitalWrite(PIN_LED, LOW);
