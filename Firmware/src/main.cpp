@@ -18,6 +18,7 @@ void setup() {
   // Init modules
   acc_init();
   rpm_init();
+  // Finished
   Debug.println("Setup finished.");
   blink_status (5);
 }
