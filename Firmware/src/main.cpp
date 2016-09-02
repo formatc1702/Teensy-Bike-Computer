@@ -8,15 +8,13 @@
 
 void setup() {
   // Init pins
-  pinMode (PIN_LED, OUTPUT);
+  pinMode (PIN_LED,        OUTPUT      );
   pinMode (PIN_RPM_SENSOR, INPUT_PULLUP);
   // Init comms
   Debug.begin(BAUD_DEBUG);
-  delay(5000);
-  if(BT_FORCE_SETUP) {
-    bt_config();
-  }
-  bt_begin();
+  // delay(5000); // give time for serial port to show up on host
+  bt_config();
+  bt_begin ();
   // Init modules
   acc_init();
   rpm_init();
