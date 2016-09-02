@@ -1,20 +1,30 @@
 #include <Arduino.h>
+#include <EEPROM.h>
 
 #include "config.h"
 #include "rpm.h"
+#include "eeprom_.h"
 
 // volatile long blips = 0;
 volatile long blips[]  = {0,0,0,0,0,0,0,0,0,0};
 volatile int  curblip  = 0;
-volatile int  allblips = 0;
+volatile long allblips = 0;
 
 const long rpm_interval   = 100;
       long rpm_last_check =   0;
 
+// const long eeprom_save_interval = 10000;
+//       long eeprom_last_save     =     0;
+//
 boolean blipstatus = false;
 
 void rpm_init() {
+  Debug.print("Init RPM...");
+  long _allblips;
+  EEPROM.get(EEPROM_DIST_TOTAL, _allblips);
+  allblips = _allblips;
   attachInterrupt (PIN_RPM_SENSOR, countBlip, FALLING);
+  Debug.println("OK!");
 }
 
 void rpm_exec(long now) {
@@ -24,6 +34,17 @@ void rpm_exec(long now) {
     rpm_last_check += rpm_interval;
   }
 }
+
+// void blip_autosave_exec(long now) {
+//   if(now - eeprom_last_save > eeprom_save_interval) {
+//     long _allblips;
+//     _allblips = allblips;
+//     EEPROM.put(EEPROM_DIST_TOTAL, _allblips);
+//     Debug.print("Saving blips in EEPROM: ");
+//     Debug.println(allblips);
+//     eeprom_last_save += eeprom_save_interval;
+//   }
+// }
 
 void countBlip() {
   blips[curblip]++;
@@ -40,11 +61,11 @@ void incBlip() {
 }
 
 long get_bps() {
-  long allblips = 0;
+  long sum = 0;
   for (int i = 0; i < 10; i++) {
-    allblips += blips[i];
+    sum += blips[i];
   }
-  return allblips;
+  return sum;
 }
 
 float get_rpm() {
@@ -86,6 +107,12 @@ float get_rev() {
 
 float get_km() {
   return (float)allblips * ((float)WHEEL_DIAMETER_MM * 3.14159 * 2.0 / ((float)DYNAMO_NUM_POLES *  1000000.0));
+}
+
+void save_dist() {
+  long _allblips;
+  _allblips = allblips;
+  EEPROM.put(EEPROM_DIST_TOTAL, _allblips);
 }
 
 void rpm_log(long now) {

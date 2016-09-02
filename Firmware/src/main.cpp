@@ -5,6 +5,7 @@
 #include "comm.h"
 #include "accel.h"
 #include "rpm.h"
+#include "eeprom_.h"
 
 void setup() {
   // Init pins
@@ -12,19 +13,21 @@ void setup() {
   pinMode (PIN_RPM_SENSOR, INPUT_PULLUP);
   // Init comms
   Debug.begin(BAUD_DEBUG);
-  // delay(5000); // give time for serial port to show up on host
+  delay(5000); // give time for serial port to show up on host
   bt_config();
   bt_begin ();
+  // Init EEPROM
+  eeprom_init();
   // Init modules
   acc_init();
   rpm_init();
-  // Finished
-  Debug.println("Setup finished.");
-  blink_status (5);
+  Debug.println("Ready.");
+  blink_status(5);
 }
 
 void loop() {
   long now = millis();
   acc_exec(now);
   rpm_exec(now);
+  // blip_autosave_exec(now);
 }

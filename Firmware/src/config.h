@@ -14,7 +14,9 @@
 // Internal config
 #define BAUD_DEBUG       9600 // irrelevant on Teensy
 #define BAUD_BT        115200
-#define BT_FORCE_SETUP  false
+
+#define BT_FORCE_SETUP     false
+#define EEPROM_FORCE_RESET false
 
 // Pins
 // Interface
