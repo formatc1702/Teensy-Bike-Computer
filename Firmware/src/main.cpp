@@ -1,22 +1,10 @@
 #include <Arduino.h>
 
-#include "Adafruit_Sensor.h"
-#include "Adafruit_ADXL345_U.h"
-
-
 #include "config.h"
 #include "debug.h"
 #include "comm.h"
 #include "accel.h"
 #include "rpm.h"
-
-// Adafruit_ADXL345_Unified accel = Adafruit_ADXL345_Unified(12345);
-
-// long LastPolling     =  0;
-// long PollingInterval = 10;
-//
-// long lastrpm = 0;
-// long rpminterval = 100;
 
 void setup() {
   // Init pins
@@ -29,6 +17,7 @@ void setup() {
     bt_config();
   }
   bt_begin();
+  // Init modules
   acc_init();
   rpm_init();
   Debug.println("Setup finished.");
@@ -38,9 +27,5 @@ void setup() {
 void loop() {
   long now = millis();
   acc_exec(now);
-  // digitalWrite(PIN_LED, HIGH);
-  // BT.println("BT hello!");  delay(100);
-  // digitalWrite(PIN_LED, LOW);
-  // delay(1000);
   rpm_exec(now);
 }

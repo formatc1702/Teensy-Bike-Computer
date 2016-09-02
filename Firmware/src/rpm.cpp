@@ -4,8 +4,8 @@
 #include "rpm.h"
 
 // volatile long blips = 0;
-volatile long blips[] = {0,0,0,0,0,0,0,0,0,0};
-volatile int  curblip = 0;
+volatile long blips[]  = {0,0,0,0,0,0,0,0,0,0};
+volatile int  curblip  = 0;
 volatile int  allblips = 0;
 
 const long rpm_interval   = 100;
