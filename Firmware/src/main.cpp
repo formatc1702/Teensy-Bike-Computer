@@ -12,8 +12,8 @@
 
 // Adafruit_ADXL345_Unified accel = Adafruit_ADXL345_Unified(12345);
 
-long LastPolling     =  0;
-long PollingInterval = 10;
+// long LastPolling     =  0;
+// long PollingInterval = 10;
 //
 // long lastrpm = 0;
 // long rpminterval = 100;
