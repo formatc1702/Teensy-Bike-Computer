@@ -6,11 +6,16 @@
 #include "accel.h"
 #include "rpm.h"
 #include "eeprom_.h"
+#include "oled.h"
 
 void setup() {
   // Init pins
   pinMode (PIN_LED,        OUTPUT      );
   pinMode (PIN_RPM_SENSOR, INPUT_PULLUP);
+  
+  oled_init();
+  while(true);
+
   // Init comms
   Debug.begin(BAUD_DEBUG);
   delay(5000); // give time for serial port to show up on host
