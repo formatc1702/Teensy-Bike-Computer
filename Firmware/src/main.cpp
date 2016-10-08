@@ -12,10 +12,6 @@ void setup() {
   // Init pins
   pinMode (PIN_LED,        OUTPUT      );
   pinMode (PIN_RPM_SENSOR, INPUT_PULLUP);
-  
-  oled_init();
-  while(true);
-
   // Init comms
   Debug.begin(BAUD_DEBUG);
   delay(5000); // give time for serial port to show up on host
@@ -34,5 +30,6 @@ void loop() {
   long now = millis();
   acc_exec(now);
   rpm_exec(now);
+  oled_init();
   // blip_autosave_exec(now);
 }

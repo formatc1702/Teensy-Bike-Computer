@@ -43,47 +43,45 @@ void oled_init() {
 
   long tmr = 0;
 
-  while(true) {
-    for (size_t ctr = 0; ctr < 80; ctr++) {
-      display.clearDisplay();
+  for (size_t ctr = 0; ctr < 80; ctr++) {
+    display.clearDisplay();
 
-      display.setTextColor(WHITE);
+    display.setTextColor(WHITE);
 
-      display.setTextSize(1);
-      display.setCursor(1,1);
+    display.setTextSize(1);
+    display.setCursor(1,1);
 
-      display.println("Trip");
-      display.println(ctr);
-      display.println(micros() - tmr);
+    display.println("Trip");
+    display.println(ctr);
+    display.println(micros() - tmr);
 
 
-      tmr = micros();
+    tmr = micros();
 
-      display.setTextSize(3);
-      display.setTextColor(WHITE);
-      display.setCursor(48,0);
-      display.print(ctr);
+    display.setTextSize(3);
+    display.setTextColor(WHITE);
+    display.setCursor(48,0);
+    display.print(ctr);
 
-      // display.fillRect(0, 0, 128, 9, WHITE);
-      //
-      // display.setTextColor(BLACK);
-      //
-      // display.setCursor(1,1);
-      // display.print("12:47");
+    // display.fillRect(0, 0, 128, 9, WHITE);
+    //
+    // display.setTextColor(BLACK);
+    //
+    // display.setCursor(1,1);
+    // display.print("12:47");
 
-      for (size_t i = 0; i <= 40; i++) {
-        int pos = 24 + i * 2;
-        display.drawPixel(pos, 31, WHITE);
-        if (i % 5 == 0)
-          display.drawPixel(pos, 30, WHITE);
-        if (i % 10 == 0)
-          display.drawPixel(pos, 29, WHITE);
-        int tripos_x = 24 + ctr;
-        int tripos_y = 28;
-        display.drawTriangle(tripos_x, tripos_y, tripos_x - 1, tripos_y - 1, tripos_x + 1, tripos_y - 1, WHITE);
-      }
-      display.display();
-      // delay(100);
+    for (size_t i = 0; i <= 40; i++) {
+      int pos = 24 + i * 2;
+      display.drawPixel(pos, 31, WHITE);
+      if (i % 5 == 0)
+        display.drawPixel(pos, 30, WHITE);
+      if (i % 10 == 0)
+        display.drawPixel(pos, 29, WHITE);
+      int tripos_x = 24 + ctr;
+      int tripos_y = 28;
+      display.drawTriangle(tripos_x, tripos_y, tripos_x - 1, tripos_y - 1, tripos_x + 1, tripos_y - 1, WHITE);
     }
+    display.display();
+    // delay(100);
   }
 };
