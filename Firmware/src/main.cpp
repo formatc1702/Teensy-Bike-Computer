@@ -6,6 +6,7 @@
 #include "accel.h"
 #include "rpm.h"
 #include "eeprom_.h"
+#include "oled.h"
 
 void setup() {
   // Init pins
@@ -36,5 +37,6 @@ void loop() {
   long now = millis();
   acc_exec(now);
   rpm_exec(now);
+  oled_init();
   // blip_autosave_exec(now);
 }
