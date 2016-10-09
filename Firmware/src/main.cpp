@@ -11,6 +11,13 @@ void setup() {
   // Init pins
   pinMode (PIN_LED,        OUTPUT      );
   pinMode (PIN_RPM_SENSOR, INPUT_PULLUP);
+  pinMode (PIN_KEEPALIVE,  OUTPUT);
+  digitalWrite (PIN_LED, HIGH);
+  digitalWrite (PIN_KEEPALIVE, HIGH);
+  // delay(5000);
+  // digitalWrite (PIN_LED, LOW);
+  // digitalWrite (PIN_KEEPALIVE, LOW);
+  // while(true);
   // Init comms
   Debug.begin(BAUD_DEBUG);
   delay(5000); // give time for serial port to show up on host

@@ -31,8 +31,9 @@
 #define PIN_TWI_SDA    18
 #define PIN_TWI_SCL    19
 // Others
-#define PIN_RPM_SENSOR 14 // CONFLICT WITH SPI SCK!! REASSIGN!
+#define PIN_RPM_SENSOR 14 // TODO: CONFLICT WITH SPI SCK!! REASSIGN!
 #define PIN_V_BATT
+#define PIN_KEEPALIVE  10 // TODO: CONFLICT WITH SPI CS!!  REASSIGN!
 
 // Aliases
 #define Debug Serial
