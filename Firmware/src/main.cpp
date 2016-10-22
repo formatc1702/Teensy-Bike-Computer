@@ -13,7 +13,7 @@ void setup() {
   pinMode (PIN_LED,        OUTPUT      );
   pinMode (PIN_RPM_SENSOR, INPUT_PULLUP);
   pinMode (PIN_KEEPALIVE,  OUTPUT);
-  digitalWrite (PIN_LED, HIGH);
+  // digitalWrite (PIN_LED, HIGH);
   digitalWrite (PIN_KEEPALIVE, HIGH);
   // delay(5000);
   // digitalWrite (PIN_LED, LOW);
@@ -32,6 +32,8 @@ void setup() {
   Debug.println("Ready.");
   blink_status(5);
 }
+
+
 
 void loop() {
   long now = millis();
