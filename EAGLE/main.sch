@@ -4522,11 +4522,11 @@ voltage range of 0.8V to 5.0V.&lt;/P&gt;
 </classes>
 <parts>
 <part name="FRAME1" library="frames" deviceset="A4L-LOC" device=""/>
-<part name="U$1" library="Teensy_3_and_LC_Series_Boards_v1.1" deviceset="TEENSY_3.1_DIL" device=""/>
+<part name="U1" library="Teensy_3_and_LC_Series_Boards_v1.1" deviceset="TEENSY_3.1_DIL" device="" value="TEENSY 3.2"/>
 <part name="+3V1" library="supply1" deviceset="+3V3" device=""/>
 <part name="GND1" library="supply1" deviceset="GND" device=""/>
-<part name="CON-BT" library="pinhead" deviceset="PINHD-1X4" device=""/>
-<part name="CON-GY-80" library="pinhead" deviceset="PINHD-1X4" device=""/>
+<part name="CON-BT" library="pinhead" deviceset="PINHD-1X4" device="" value="HC-06"/>
+<part name="CON-ACC" library="pinhead" deviceset="PINHD-1X4" device="" value="GY-80"/>
 <part name="CON-SD1" library="pinhead" deviceset="PINHD-1X5" device=""/>
 <part name="CON-SD2" library="pinhead" deviceset="PINHD-1X5" device=""/>
 <part name="+3V2" library="supply1" deviceset="+3V3" device=""/>
@@ -4540,14 +4540,14 @@ voltage range of 0.8V to 5.0V.&lt;/P&gt;
 <part name="IN-" library="pinhead" deviceset="PINHD-1X1" device=""/>
 <part name="OUT+" library="pinhead" deviceset="PINHD-1X1" device=""/>
 <part name="OUT-" library="pinhead" deviceset="PINHD-1X1" device=""/>
-<part name="IC1" library="linear" deviceset="78*" device="TV" technology="05"/>
+<part name="U2" library="linear" deviceset="78*" device="TV" technology="05"/>
 <part name="BAT-" library="pinhead" deviceset="PINHD-1X1" device=""/>
 <part name="BAT+" library="pinhead" deviceset="PINHD-1X1" device=""/>
 <part name="D1" library="adafruit" deviceset="1N4004" device=""/>
 <part name="D2" library="adafruit" deviceset="1N4004" device=""/>
 <part name="R1" library="rcl" deviceset="R-EU_" device="0204/7" value="10k"/>
 <part name="BAT" library="pinhead" deviceset="PINHD-1X2" device=""/>
-<part name="U1" library="bt_regulator" deviceset="MCP1824" device="" value="MCP1825"/>
+<part name="U3" library="bt_regulator" deviceset="MCP1824" device="" value="MCP1825"/>
 <part name="GND6" library="supply1" deviceset="GND" device=""/>
 <part name="GND7" library="supply1" deviceset="GND" device=""/>
 <part name="GND8" library="supply1" deviceset="GND" device=""/>
@@ -4566,15 +4566,27 @@ Do not connect to 5V</text>
 <wire x1="124.46" y1="71.12" x2="124.46" y2="40.64" width="0.1524" layer="94"/>
 <wire x1="124.46" y1="40.64" x2="99.06" y2="40.64" width="0.1524" layer="94"/>
 <wire x1="99.06" y1="40.64" x2="99.06" y2="71.12" width="0.1524" layer="94"/>
-<text x="104.14" y="73.66" size="1.778" layer="94">LiPo Charger</text>
+<text x="104.14" y="73.66" size="1.778" layer="95">LiPo Charger</text>
+<text x="10.16" y="10.16" size="1.778" layer="97" font="fixed">Pass through between Power and Logic PCBs:
+
+GND       OK
+3V3       OK
+
+KEEPALIVE OK
+RPM       OK
+VBAT (?)
+
+I2C CLOCK
+I2C DATA
+(for output thorugh cable)</text>
 </plain>
 <instances>
 <instance part="FRAME1" gate="G$1" x="0" y="0"/>
-<instance part="U$1" gate="G$1" x="45.72" y="134.62" rot="MR0"/>
+<instance part="U1" gate="G$1" x="45.72" y="134.62" rot="MR0"/>
 <instance part="+3V1" gate="G$1" x="10.16" y="165.1" rot="MR0"/>
 <instance part="GND1" gate="1" x="15.24" y="147.32" rot="MR0"/>
 <instance part="CON-BT" gate="A" x="220.98" y="152.4"/>
-<instance part="CON-GY-80" gate="A" x="220.98" y="111.76"/>
+<instance part="CON-ACC" gate="A" x="220.98" y="111.76"/>
 <instance part="CON-SD1" gate="A" x="215.9" y="68.58"/>
 <instance part="CON-SD2" gate="A" x="223.52" y="68.58" rot="R180"/>
 <instance part="+3V2" gate="G$1" x="190.5" y="121.92"/>
@@ -4588,14 +4600,14 @@ Do not connect to 5V</text>
 <instance part="IN-" gate="G$1" x="109.22" y="55.88" rot="MR180"/>
 <instance part="OUT+" gate="G$1" x="114.3" y="63.5" rot="MR0"/>
 <instance part="OUT-" gate="G$1" x="114.3" y="55.88" rot="R180"/>
-<instance part="IC1" gate="A1" x="68.58" y="63.5"/>
+<instance part="U2" gate="A1" x="68.58" y="63.5"/>
 <instance part="BAT-" gate="G$1" x="116.84" y="48.26" rot="MR90"/>
 <instance part="BAT+" gate="G$1" x="106.68" y="48.26" rot="R90"/>
 <instance part="D1" gate="1" x="134.62" y="63.5"/>
 <instance part="D2" gate="1" x="134.62" y="33.02"/>
 <instance part="R1" gate="G$1" x="154.94" y="27.94" rot="R90"/>
 <instance part="BAT" gate="G$1" x="111.76" y="22.86" rot="MR270"/>
-<instance part="U1" gate="G$1" x="149.86" y="76.2" rot="R90"/>
+<instance part="U3" gate="G$1" x="149.86" y="76.2" rot="R90"/>
 <instance part="GND6" gate="1" x="129.54" y="50.8"/>
 <instance part="GND7" gate="1" x="68.58" y="50.8"/>
 <instance part="GND8" gate="1" x="40.64" y="68.58" rot="R90"/>
@@ -4609,13 +4621,13 @@ Do not connect to 5V</text>
 <nets>
 <net name="+3V3" class="0">
 <segment>
-<pinref part="U$1" gate="G$1" pin="3.3V"/>
+<pinref part="U1" gate="G$1" pin="3.3V"/>
 <wire x1="22.86" y1="157.48" x2="10.16" y2="157.48" width="0.1524" layer="91"/>
 <pinref part="+3V1" gate="G$1" pin="+3V3"/>
 <wire x1="10.16" y1="157.48" x2="10.16" y2="162.56" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="CON-GY-80" gate="A" pin="1"/>
+<pinref part="CON-ACC" gate="A" pin="1"/>
 <wire x1="218.44" y1="116.84" x2="190.5" y2="116.84" width="0.1524" layer="91"/>
 <wire x1="190.5" y1="116.84" x2="190.5" y2="119.38" width="0.1524" layer="91"/>
 <pinref part="+3V2" gate="G$1" pin="+3V3"/>
@@ -4635,7 +4647,7 @@ Do not connect to 5V</text>
 </segment>
 <segment>
 <pinref part="+3V5" gate="G$1" pin="+3V3"/>
-<pinref part="U1" gate="G$1" pin="OUT"/>
+<pinref part="U3" gate="G$1" pin="OUT"/>
 <wire x1="144.78" y1="88.9" x2="144.78" y2="86.36" width="0.1524" layer="91"/>
 </segment>
 </net>
@@ -4643,11 +4655,11 @@ Do not connect to 5V</text>
 <segment>
 <pinref part="GND1" gate="1" pin="GND"/>
 <wire x1="15.24" y1="152.4" x2="15.24" y2="149.86" width="0.1524" layer="91"/>
-<pinref part="U$1" gate="G$1" pin="GND"/>
+<pinref part="U1" gate="G$1" pin="GND"/>
 <wire x1="15.24" y1="152.4" x2="22.86" y2="152.4" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="CON-GY-80" gate="A" pin="2"/>
+<pinref part="CON-ACC" gate="A" pin="2"/>
 <wire x1="218.44" y1="114.3" x2="190.5" y2="114.3" width="0.1524" layer="91"/>
 <wire x1="190.5" y1="114.3" x2="190.5" y2="111.76" width="0.1524" layer="91"/>
 <pinref part="GND2" gate="1" pin="GND"/>
@@ -4665,7 +4677,7 @@ Do not connect to 5V</text>
 <pinref part="GND4" gate="1" pin="GND"/>
 </segment>
 <segment>
-<pinref part="IC1" gate="A1" pin="GND"/>
+<pinref part="U2" gate="A1" pin="GND"/>
 <wire x1="68.58" y1="53.34" x2="68.58" y2="55.88" width="0.1524" layer="91"/>
 <pinref part="GND7" gate="1" pin="GND"/>
 </segment>
@@ -4693,14 +4705,14 @@ Do not connect to 5V</text>
 <wire x1="106.68" y1="55.88" x2="93.98" y2="55.88" width="0.1524" layer="91"/>
 </segment>
 <segment>
-<pinref part="U1" gate="G$1" pin="GND"/>
+<pinref part="U3" gate="G$1" pin="GND"/>
 <pinref part="GND10" gate="1" pin="GND"/>
 <wire x1="149.86" y1="55.88" x2="149.86" y2="66.04" width="0.1524" layer="91"/>
 </segment>
 </net>
 <net name="BT-TX" class="0">
 <segment>
-<pinref part="U$1" gate="G$1" pin="0/RX1/T"/>
+<pinref part="U1" gate="G$1" pin="0/RX1/T"/>
 <wire x1="68.58" y1="160.02" x2="83.82" y2="160.02" width="0.1524" layer="91"/>
 <label x="81.28" y="160.02" size="1.778" layer="95" rot="MR0"/>
 </segment>
@@ -4712,7 +4724,7 @@ Do not connect to 5V</text>
 </net>
 <net name="BT-RX" class="0">
 <segment>
-<pinref part="U$1" gate="G$1" pin="1/TX1/T"/>
+<pinref part="U1" gate="G$1" pin="1/TX1/T"/>
 <wire x1="68.58" y1="157.48" x2="83.82" y2="157.48" width="0.1524" layer="91"/>
 <label x="81.28" y="157.48" size="1.778" layer="95" rot="MR0"/>
 </segment>
@@ -4724,7 +4736,7 @@ Do not connect to 5V</text>
 </net>
 <net name="MOSI" class="0">
 <segment>
-<pinref part="U$1" gate="G$1" pin="11/MOSI"/>
+<pinref part="U1" gate="G$1" pin="11/MOSI"/>
 <wire x1="68.58" y1="132.08" x2="83.82" y2="132.08" width="0.1524" layer="91"/>
 <label x="81.28" y="132.08" size="1.778" layer="95" rot="MR0"/>
 </segment>
@@ -4736,7 +4748,7 @@ Do not connect to 5V</text>
 </net>
 <net name="MISO" class="0">
 <segment>
-<pinref part="U$1" gate="G$1" pin="12/MISO"/>
+<pinref part="U1" gate="G$1" pin="12/MISO"/>
 <wire x1="68.58" y1="129.54" x2="83.82" y2="129.54" width="0.1524" layer="91"/>
 <label x="81.28" y="129.54" size="1.778" layer="95" rot="MR0"/>
 </segment>
@@ -4748,7 +4760,7 @@ Do not connect to 5V</text>
 </net>
 <net name="SCK-ALT" class="0">
 <segment>
-<pinref part="U$1" gate="G$1" pin="14/A1"/>
+<pinref part="U1" gate="G$1" pin="14/A1"/>
 <wire x1="68.58" y1="124.46" x2="83.82" y2="124.46" width="0.1524" layer="91"/>
 <label x="81.28" y="124.46" size="1.778" layer="95" rot="MR0"/>
 </segment>
@@ -4760,24 +4772,24 @@ Do not connect to 5V</text>
 </net>
 <net name="SDA0" class="0">
 <segment>
-<pinref part="U$1" gate="G$1" pin="18/A4/T/SDA0"/>
+<pinref part="U1" gate="G$1" pin="18/A4/T/SDA0"/>
 <wire x1="68.58" y1="114.3" x2="83.82" y2="114.3" width="0.1524" layer="91"/>
 <label x="81.28" y="114.3" size="1.778" layer="95" rot="MR0"/>
 </segment>
 <segment>
-<pinref part="CON-GY-80" gate="A" pin="4"/>
+<pinref part="CON-ACC" gate="A" pin="4"/>
 <wire x1="218.44" y1="109.22" x2="195.58" y2="109.22" width="0.1524" layer="91"/>
 <label x="198.12" y="109.22" size="1.778" layer="95"/>
 </segment>
 </net>
 <net name="SCL0" class="0">
 <segment>
-<pinref part="U$1" gate="G$1" pin="19/A5/T/SCL0"/>
+<pinref part="U1" gate="G$1" pin="19/A5/T/SCL0"/>
 <wire x1="68.58" y1="111.76" x2="83.82" y2="111.76" width="0.1524" layer="91"/>
 <label x="81.28" y="111.76" size="1.778" layer="95" rot="MR0"/>
 </segment>
 <segment>
-<pinref part="CON-GY-80" gate="A" pin="3"/>
+<pinref part="CON-ACC" gate="A" pin="3"/>
 <wire x1="218.44" y1="111.76" x2="195.58" y2="111.76" width="0.1524" layer="91"/>
 <label x="198.12" y="111.76" size="1.778" layer="95"/>
 </segment>
@@ -4789,7 +4801,7 @@ Do not connect to 5V</text>
 <label x="190.5" y="71.12" size="1.778" layer="95"/>
 </segment>
 <segment>
-<pinref part="U$1" gate="G$1" pin="10/TX2/PWM"/>
+<pinref part="U1" gate="G$1" pin="10/TX2/PWM"/>
 <wire x1="68.58" y1="134.62" x2="83.82" y2="134.62" width="0.1524" layer="91"/>
 <label x="81.28" y="134.62" size="1.778" layer="95" rot="MR0"/>
 </segment>
@@ -4827,7 +4839,7 @@ Do not connect to 5V</text>
 <pinref part="JP1" gate="A" pin="5"/>
 <wire x1="22.86" y1="63.5" x2="58.42" y2="63.5" width="0.1524" layer="91"/>
 <label x="30.48" y="63.5" size="1.778" layer="95"/>
-<pinref part="IC1" gate="A1" pin="VI"/>
+<pinref part="U2" gate="A1" pin="VI"/>
 </segment>
 </net>
 <net name="AUTO_ON" class="0">
@@ -4842,7 +4854,7 @@ Do not connect to 5V</text>
 <wire x1="86.36" y1="12.7" x2="86.36" y2="63.5" width="0.1524" layer="91"/>
 <junction x="86.36" y="63.5"/>
 <label x="91.44" y="12.7" size="1.778" layer="95"/>
-<pinref part="IC1" gate="A1" pin="VO"/>
+<pinref part="U2" gate="A1" pin="VO"/>
 </segment>
 </net>
 <net name="OUT+" class="0">
@@ -4868,7 +4880,7 @@ Do not connect to 5V</text>
 <pinref part="D2" gate="1" pin="C"/>
 <wire x1="137.16" y1="33.02" x2="154.94" y2="33.02" width="0.1524" layer="91"/>
 <junction x="154.94" y="33.02"/>
-<pinref part="U1" gate="G$1" pin="EN"/>
+<pinref part="U3" gate="G$1" pin="EN"/>
 <wire x1="154.94" y1="33.02" x2="154.94" y2="66.04" width="0.1524" layer="91"/>
 <pinref part="R1" gate="G$1" pin="2"/>
 </segment>
@@ -4894,7 +4906,7 @@ Do not connect to 5V</text>
 <pinref part="D1" gate="1" pin="C"/>
 <wire x1="137.16" y1="63.5" x2="144.78" y2="63.5" width="0.1524" layer="91"/>
 <wire x1="144.78" y1="63.5" x2="144.78" y2="66.04" width="0.1524" layer="91"/>
-<pinref part="U1" gate="G$1" pin="IN"/>
+<pinref part="U3" gate="G$1" pin="IN"/>
 </segment>
 </net>
 </nets>
