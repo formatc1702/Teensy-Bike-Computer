@@ -16,7 +16,6 @@ void setup() {
   digitalWrite (PIN_KEEPALIVE, HIGH);
   // Init comms
   Debug.begin(BAUD_DEBUG);
-  delay(5000); // give time for serial port to show up on host
   bt_config();
   bt_begin ();
   // Init EEPROM
